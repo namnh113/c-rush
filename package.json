@@ -1,0 +1,21 @@
+{
+  "name": "crypto-rush",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:log": "node index.js | tee trades-log.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asciichart": "^1.5.25",
+    "ccxt": "^3.0.25",
+    "delay": "^5.0.0",
+    "dotenv": "^16.0.3",
+    "moment": "^2.29.4"
+  }
+}
