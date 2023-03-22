@@ -12,7 +12,7 @@ async function printBalance(btcPrice) {
   // console.table(balanceTable);
   const total =  balance.total;
   console.log(`Balance: BTC ${total.BTC}, USDT ${total.USDT}`);
-  console.log(`total USDT: ${(total.BTC - 1) * btcPrice + total.USDT}. \n`);
+  console.log(`total USDT: ${(total.BTC - 1) * btcPrice + total.USDT} \n`);
 }
 
 async function tick() {

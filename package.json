@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "start:log": "node index.js | tee trades-log.txt"
+    "start:log": "node index.js | tee trades-log.txt",
+    "chart": "node chart.js"
   },
   "keywords": [],
   "author": "",
