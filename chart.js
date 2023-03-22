@@ -19,4 +19,4 @@ function plotAsset() {
 plotAsset();
 setInterval(() => {
   plotAsset();
-}, 5 * 60 * 100);
+}, 1 * 60 * 100);

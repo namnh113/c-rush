@@ -16,7 +16,7 @@ async function printBalance(btcPrice) {
 }
 
 async function tick() {
-  const prices = await binance.fetchOHLCV("BTCUSDT", "1m", undefined, 10);
+  const prices = await binance.fetchOHLCV("BTCUSDT", "1m", undefined, 20);
   const bPrices = prices.map((price) => ({
     timestamp: moment(price[0]).format(),
     open: price[1],
@@ -26,11 +26,12 @@ async function tick() {
     volume: price[5],
   }));
 
-  const averagePrice = bPrices.reduce((acc, price) => acc + price.close) / 10;
+  const averagePrice = bPrices.reduce((acc, price) => acc + price.close, 0) / 20;
   const lastPrice = bPrices.at(-1).close;
   const direction = lastPrice > averagePrice ? "sell" : "buy";
+  console.log(`Average price: ${averagePrice}, Last price: ${lastPrice}`);
 
-  const TRADE_SIZE = 100;
+  const TRADE_SIZE = 200;
   quantity = TRADE_SIZE / lastPrice;
   const order = await binance.createMarketOrder("BTCUSDT", direction, quantity);
   console.log(`${moment().format()}: ${direction} ${quantity} BTC at ${lastPrice}`);
@@ -40,7 +41,7 @@ async function tick() {
 async function main() {
   while (true) {
     await tick();
-    await delay(1000 * 60 * 5);
+    await delay(1000 * 60 * 1);
   }
 }
 
